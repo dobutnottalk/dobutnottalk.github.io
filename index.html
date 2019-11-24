@@ -385,7 +385,7 @@
                 
               
 
-              <time title="创建时间：2019-11-24 00:00:00 / 修改时间：15:01:13" itemprop="dateCreated datePublished" datetime="2019-11-24T00:00:00+08:00">2019-11-24</time>
+              <time title="创建时间：2019-11-24 00:00:00 / 修改时间：15:18:35" itemprop="dateCreated datePublished" datetime="2019-11-24T00:00:00+08:00">2019-11-24</time>
             </span>
           
 
@@ -430,16 +430,20 @@
 
       
         
-          并不是每一种想法，都能被人理解与包容
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/11/24/指令代码/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+            <h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><p>vi /usr/local/sbin/mount-shared-folders</p>
+<p>chmod +x /usr/local/sbin/mount-shared-folders</p>
+<p>ln -sf /usr/local/sbin/mount-shared-folders /root/Desktop/mount-shared-folders.sh</p>
+<p>#!/bin/bash</p>
+<p>vmware-hgfsclient | while read folder; do </p>
+<p>  vmwpath=”/mnt/hgfs/${folder}”</p>
+<p>  echo “[i] Mounting ${folder} (${vmwpath})”</p>
+<p>  mkdir -p “${vmwpath}” umount -f “${vmwpath}” 2&gt;/dev/null</p>
+<p>  vmhgfs-fuse -o allow_other -o auto_unmount “.host:/${folder}” “${vmwpath}”</p>
+<p>done</p>
+<p>sleep 2s </p>
+
           
-          <!--/noindex-->
         
       
     </div>
