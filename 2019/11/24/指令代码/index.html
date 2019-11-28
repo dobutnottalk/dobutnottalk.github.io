@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="Just follow your heart">
 <meta property="og:description" content="指令vi /usr/local/sbin/mount-shared-folders chmod +x /usr/local/sbin/mount-shared-folders ln -sf /usr/local/sbin/mount-shared-folders /root/Desktop/mount-shared-folders.sh #!/bin/bash vmware-hgfsclient">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-24T07:18:35.412Z">
+<meta property="og:updated_time" content="2019-11-28T09:06:51.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 共享文件夹指令">
 <meta name="twitter:description" content="指令vi /usr/local/sbin/mount-shared-folders chmod +x /usr/local/sbin/mount-shared-folders ln -sf /usr/local/sbin/mount-shared-folders /root/Desktop/mount-shared-folders.sh #!/bin/bash vmware-hgfsclient">
@@ -386,13 +386,23 @@
                 
               
 
-              <time title="创建时间：2019-11-24 00:00:00 / 修改时间：15:18:35" itemprop="dateCreated datePublished" datetime="2019-11-24T00:00:00+08:00">2019-11-24</time>
+              <time title="创建时间：2019-11-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-24T00:00:00+08:00">2019-11-24</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-28 17:06:51" itemprop="dateModified" datetime="2019-11-28T17:06:51+08:00">2019-11-28</time>
+              </span>
             
           
 
@@ -435,12 +445,14 @@
 <p>ln -sf /usr/local/sbin/mount-shared-folders /root/Desktop/mount-shared-folders.sh</p>
 <p>#!/bin/bash</p>
 <p>vmware-hgfsclient | while read folder; do </p>
-<p>  vmwpath=”/mnt/hgfs/${folder}”</p>
-<p>  echo “[i] Mounting ${folder} (${vmwpath})”</p>
-<p>  mkdir -p “${vmwpath}” umount -f “${vmwpath}” 2&gt;/dev/null</p>
-<p>  vmhgfs-fuse -o allow_other -o auto_unmount “.host:/${folder}” “${vmwpath}”</p>
+<p>  vmwpath=”/mnt/hgfs/\${folder}”</p>
+<p>  echo “[i] Mounting \${folder} (\{vmwpath})”</p>
+<p>  sudo mkdir -p “\${vmwpath}” sudo umount -f “\${vmwpath}” 2&gt;/dev/null</p>
+<p>  vmhgfs-fuse -o allow_other -o auto_unmount “.host:/${folder}” “\${vmwpath}”</p>
 <p>done</p>
 <p>sleep 2s </p>
+<p>EOF</p>
+<p>sudo chmod +x/usr/local/sbin/mount-shared-folders</p>
 
       
     </div>
